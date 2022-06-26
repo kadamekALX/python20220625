@@ -16,3 +16,5 @@ print()
 for i in range(6, 15, 3):
     print(f"{i = }")
 
+q = list(range(10))
+print(f"{q = }")
