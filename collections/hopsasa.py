@@ -16,3 +16,20 @@ for i in range(1, 101):
         print(napis)
     else:
         print(i)
+
+
+# for i in range(1, 101):
+#     cos_wypisane = False
+#     if i % 3 == 0:
+#         print("Hopsasa", end="")
+#         cos_wypisane = True
+#     if i % 5 == 0:
+#         print("Tralala", end="")
+#         cos_wypisane = True
+#     if i % 7 == 0:
+#         print("Bum", end="")
+#         cos_wypisane = True
+#
+#     if not cos_wypisane:
+#         print(i, end="")
+#     print()
