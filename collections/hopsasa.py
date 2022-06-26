@@ -9,6 +9,8 @@ for i in range(1, 101):
         napis += "Hopsasa"
     if i % 5 == 0:
         napis += "Tralala"
+    if i % 7 == 0:
+        napis += "Bum"
 
     if napis:  # czy napis jest niepusty
         print(napis)
