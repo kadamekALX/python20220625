@@ -33,3 +33,4 @@ for i in range(1, 101):
 #     if not cos_wypisane:
 #         print(i, end="")
 #     print()
+# test
