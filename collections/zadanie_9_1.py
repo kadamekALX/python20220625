@@ -17,13 +17,16 @@ litera => liczba wystąpień (int)
 Trzeba sprawdzić czy dana litera wystepuje w slowniku!
 """
 
+from collections import defaultdict
+
 napis = input('Podaj napis: ')
 
-wystapienia = {}  # pusty slownik
+# wystapienia = {}
+wystapienia = defaultdict(int)
 
 for litera in napis:
-    if litera not in wystapienia:
-        wystapienia[litera] = 0
+    # if litera not in wystapienia:
+    #     wystapienia[litera] = 0
 
     wystapienia[litera] += 1
 

@@ -47,3 +47,14 @@ autor, tytul = ('Mickiewicz', 'Pan Tadeusz')
 print(autor)
 print(tytul)
 
+print('-' * 30)
+
+dane = {}
+# jezeli nie ma klucza w slowniku a probujemy sie do niego dostac, to dostaniemy blad KeyError
+# print(dane['temperatura'])
+
+# default dict
+from collections import defaultdict
+
+dane = defaultdict(int)
+print(dane['temperatura'])
