@@ -17,10 +17,21 @@ dla liczb od 0 do 10 w postaci tabelki.
 10     0  10  20  30  40  50  60  70  80  90 100
 """
 
+print('-' * 30)
+
+print(' ' * 4, end='')
 for i in range(0, 11):
+    print(f'{i:4}', end='')
+
+print()
+print()
+
+for i in range(0, 11):
+    print(f'{i:<4}', end='')
+
     for j in range(0, 11):
         print(f'{i*j:4}', end='')
 
     print()
 
-print(f'{3.123456:_<10.2f}')
+# print(f'{3.123456:_<10.2f}')
