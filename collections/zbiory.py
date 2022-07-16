@@ -70,6 +70,10 @@ b = {1, 2, 4, 5}
 print(a.union(b))
 print(a | b)
 
+# czesc wspolna
+print(a.intersection(b))
+print(a & b)
+
 # roznica
 print(a.difference(b))
 print(a - b)

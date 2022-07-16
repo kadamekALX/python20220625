@@ -58,3 +58,4 @@ from collections import defaultdict
 
 dane = defaultdict(int)
 print(dane['temperatura'])
+
