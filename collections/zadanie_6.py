@@ -11,3 +11,22 @@ Jak poradzić sobie ze zliczaniem dużych liter?
 2. Użyć metody .lower()
 """
 
+napis = input('Podaj napis: ')
+
+samogloski = ['a', 'e', 'i', 'o', 'u', 'y']
+ile_samoglosek = 0
+
+for znak in napis.lower():
+    if znak in samogloski:
+        ile_samoglosek += 1
+
+print(f'W napisie "{napis}" znajduja się {ile_samoglosek} samogłosek.')
+
+print('-' * 30)
+
+ile_samoglosek = 0
+
+for samogloska in samogloski:
+    ile_samoglosek += napis.lower().count(samogloska)
+
+print(f'W napisie "{napis}" znajduja się {ile_samoglosek} samogłosek.')

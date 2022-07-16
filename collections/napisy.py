@@ -43,7 +43,7 @@ b = a.replace('A', 'a')
 print(a)
 print(b)
 
-samogloski = ['a', 'e', 'i', 'o', 'u', 'e']
+samogloski = ['a', 'e', 'i', 'o', 'u', 'y']
 
 print('a' in samogloski)
 print('z' in samogloski)
