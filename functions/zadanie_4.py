@@ -13,23 +13,36 @@ Sygnatura funkcji:
 policz_znaki(napis: str, start: str = '<', end: str = '>') -> int
 """
 
-import pytest
-
 
 def policz_znaki(napis: str, start: str = '<', end: str = '>') -> int:
-    pass
+    if napis.count(start) != 1 or napis.count(end) != 1:
+        raise ValueError('Nieprawidlowa liczba nawiasow')
+
+    liczba_znakow = 0
+    czy_zliczac = False
+
+    for znak in napis:
+        if znak == start:
+            czy_zliczac = True
+        elif znak == end:
+            czy_zliczac = False
+        elif czy_zliczac == True:
+            liczba_znakow += 1
+
+    return liczba_znakow
+
+import pytest
 
 def test_policz_znaki_w_pustym_napisie():
-    pass
+    with pytest.raises(ValueError):
+        assert policz_znaki('') == 0
 
 
 def test_policz_znaki_gdy_brak_nawiasow():
-    pass
+    with pytest.raises(ValueError):
+        assert policz_znaki('Ala ma kota') == 0
 
 
 def test_policz_znaki_pomiedzy_nawiasami_jeden_poziom():
-    pass
-
-
-def test_policz_znaki_pomiedzy_nawiasami_jeden_poziom_wiele_nawiasow():
-    pass
+    assert policz_znaki('Ala <ma> kota') == 2
+    assert policz_znaki('Ala (ma) kota', '(', ')') == 2

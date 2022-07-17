@@ -120,3 +120,4 @@ print(opakowywacz(napis='Ala ma kota', sufix='..'))
 # najpierw podajemy argumenty w sposob pozycyjny, pozniej w sposob nazwany
 print(opakowywacz('Ala ma kota', sufix='..'))
 
+print(False == 0)
