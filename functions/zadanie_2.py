@@ -43,16 +43,27 @@ def test_czy_liczba_jest_pierwsza():
     # asercja (ang. assert) - uznanie jakiegos zdania/wyrazenia za prawdziwe
     # https://pl.wikipedia.org/wiki/Asercja_(informatyka)
     # https://sjp.pl/asercja
-    assert wynik == True
+    assert wynik is True
 
 
 def test_wielu_liczb_pierwszych():
     liczby = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
     for liczba in liczby:
-        assert czy_jest_pierwsza(liczba) == True
+        assert czy_jest_pierwsza(liczba) is True
 
 
 def test_wielu_liczb_nie_pierwszych():
     liczby = [-100, -10, 0, 1, 4, 8, 9, 30, 50, 100]
     for liczba in liczby:
-        assert czy_jest_pierwsza(liczba) == False
+        assert czy_jest_pierwsza(liczba) is False
+
+def test_wielu_liczb_pierwszych2():
+    liczby = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+    for liczba in liczby:
+        assert czy_jest_pierwsza(liczba)
+
+
+def test_wielu_liczb_nie_pierwszych2():
+    liczby = [-100, -10, 0, 1, 4, 8, 9, 30, 50, 100]
+    for liczba in liczby:
+        assert not czy_jest_pierwsza(liczba)

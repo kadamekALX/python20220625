@@ -66,3 +66,37 @@ def suma(a: int, b: int) -> int:
 
 
 print(suma(3, 4))
+
+print('-' * 30)
+
+# co jest falszem a co prawda
+
+print(bool('Ala ma kota'))  # True
+print(bool(''))  # False
+print(bool('False'))  # True
+print(bool(0))  # False
+print(bool(-1))  # True
+print(bool([]))  # False
+print(bool(['Ala ma kota']))  # True
+print(bool([False]))  # True
+print(bool(None))  # False
+
+if 10:
+    print('PRAWDA')
+else:
+    print('FALSZ')
+
+if 1 == True:
+    print('PRAWDA')
+else:
+    print('FALSZ')
+
+if 1 is True:
+    print('PRAWDA')
+else:
+    print('FALSZ')
+
+if True is True:
+    print('PRAWDA')
+else:
+    print('FALSZ')
