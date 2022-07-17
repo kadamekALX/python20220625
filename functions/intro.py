@@ -121,3 +121,37 @@ print(opakowywacz(napis='Ala ma kota', sufix='..'))
 print(opakowywacz('Ala ma kota', sufix='..'))
 
 print(False == 0)
+
+
+print('-' * 30)
+
+# dowolnie wiele argumentów
+
+# *args - argumenty pozycyjne
+# **kwargs (key-worded arguments) - argumenty nazwane
+def zliczacz(*args, **kwargs):
+    print('---')
+    print(f'{args = }')
+    print(f'{kwargs = }')
+    print('---')
+
+
+zliczacz(1, 2, 3, a=10, b=20, c=30)
+zliczacz()
+zliczacz(1, 2, 3)
+zliczacz(param1=123, param2=456)
+
+# argumenty pozycyjny, *args, **kwargs - mozemy ze soba laczyc w dowolnej konfiguracji
+# kolejnosc: pozycyjne, *args, **kwags
+
+def moja_funkcja(a, b, c=10, *args, **kwargs):
+    print('---')
+    print(f'{a=}')
+    print(f'{b = }')
+    print(f'{c = }')
+    print(f'{args = }')
+    print(f'{kwargs = }')
+    print('---')
+
+moja_funkcja(10, 20, 30, 40, 50, 60, param1=123, param2=456)
+
