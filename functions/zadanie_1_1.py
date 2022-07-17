@@ -26,16 +26,19 @@ liczba_1 = float(input('Podaj liczbę 1: '))
 liczba_2 = float(input('Podaj liczbę 2: '))
 dzialanie = input('Podaj działanie (+, -, *, /): ')
 
-if dzialanie == '+':
-    wynik = suma(liczba_1, liczba_2)
-elif dzialanie == '-':
-    wynik = roznica(liczba_1, liczba_2)
-elif dzialanie == '*':
-    wynik = iloczyn(liczba_1, liczba_2)
-elif dzialanie == '/':
-    wynik = iloraz(liczba_1, liczba_2)
-else:
-    print('Niepoprawne dzialanie.')
-    exit()
+# match / case -> implementacja instrukcji switch z innych jezykow
+match dzialanie:
+    case '+':
+        wynik = suma(liczba_1, liczba_2)
+    case '-':
+        wynik = roznica(liczba_1, liczba_2)
+    case '*':
+        wynik = iloczyn(liczba_1, liczba_2)
+    case '/':
+        wynik = iloraz(liczba_1, liczba_2)
+    case _:
+        print('Niepoprawne dzialanie.')
+        exit()
+
 
 print(f'{liczba_1}{dzialanie}{liczba_2}={wynik}')
