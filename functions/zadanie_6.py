@@ -25,3 +25,22 @@ Testy
 - jak nie ma zmiennej 'Hello $imie' -> 'Hello $imie'
 """
 
+def formatuj(*args, **kwargs):
+    wynik = []
+
+    for napis in args:
+        for nazwa_podstawienia, wartosc_podstawienia in kwargs.items():
+            napis = napis.replace(f'${nazwa_podstawienia}', str(wartosc_podstawienia))
+
+        wynik.append(napis)
+
+    return '\n'.join(wynik)
+
+def test_formatuj_napis_bez_podstawienia():
+    assert formatuj('Hello World!') == 'Hello World!'
+
+def test_formatuj_napisy_bez_podstawienia():
+    assert formatuj('Hello World!', 'Hello Python') == 'Hello World!\nHello Python'
+
+def test_formatuj_z_podstawieniem():
+    assert formatuj('Czesc $imie $nazwisko!', imie='Jan', nazwisko='Kowalski') == 'Czesc Jan Kowalski!'
