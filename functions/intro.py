@@ -91,12 +91,32 @@ if 1 == True:
 else:
     print('FALSZ')
 
-if 1 is True:
-    print('PRAWDA')
-else:
-    print('FALSZ')
-
 if True is True:
     print('PRAWDA')
 else:
     print('FALSZ')
+
+
+print('-' * 30)
+
+
+# argumenty domyslne
+# najpierw podajemy argumenty obowiazkowe, pozniej te z wartoscia domyslna
+def opakowywacz(napis: str, prefix: str = '>>', sufix: str = '<<') -> str:
+    return prefix + napis + sufix
+
+# wywolania pozycyjne
+print(opakowywacz('Ala ma kota', '--'))
+print(opakowywacz('Ala ma kota', '--', '..'))
+print(opakowywacz('Ala ma kota', '>>', '..'))
+print(opakowywacz('Ala ma kota', '..'))
+
+# wywolania nazwane
+print(opakowywacz(napis='Ala ma kota', prefix='--', sufix='..'))
+print(opakowywacz(prefix='--', napis='Ala ma kota', sufix='..'))
+print(opakowywacz(napis='Ala ma kota', sufix='..'))
+
+# wywolania pozycyjnego i nazwanego
+# najpierw podajemy argumenty w sposob pozycyjny, pozniej w sposob nazwany
+print(opakowywacz('Ala ma kota', sufix='..'))
+
