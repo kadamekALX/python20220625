@@ -14,12 +14,22 @@ pusty napis
 """
 
 def wiecej_niz(napis: str, ile_znakow: int) -> set:
-    return set()
+    wynik = set()
+
+    for znak in napis:
+        if napis.count(znak) > ile_znakow:
+            wynik.add(znak)
+
+    return wynik
 
 
 def test_wiecej_niz_dla_pustego_napisu():
     assert wiecej_niz('', 1) == set()
 
+
 def test_wiecej_niz_dla_niepustego_napisu():
-    assert wiecej_niz('aaaaaabbc', 3) == set('a')
+    assert wiecej_niz('aaaaaabbc', 3) == {'a'}
+    assert wiecej_niz('AAAabc', 2) == {'A'}
+    assert wiecej_niz('AAAbbbcc', 2) == {'A', 'b'}
+
 
