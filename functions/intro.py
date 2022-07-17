@@ -155,3 +155,23 @@ def moja_funkcja(a, b, c=10, *args, **kwargs):
 
 moja_funkcja(10, 20, 30, 40, 50, 60, param1=123, param2=456)
 
+print('-' * 30)
+
+# jednolinijkowy if
+
+osoba = {
+    'imie': 'Piotr',
+    'nazwisko': 'GG',
+    # 'pesel': 123,
+}
+
+if 'pesel' in osoba:
+    czy_ma_pesel = True
+else:
+    czy_ma_pesel = False
+
+print(czy_ma_pesel)
+
+
+czy_ma_pesel = True if 'pesel' in osoba else False
+print(czy_ma_pesel)
