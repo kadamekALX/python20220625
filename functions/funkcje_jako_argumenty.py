@@ -28,3 +28,9 @@ def zaaplikuj(f, lista):
 
 print(f"{zaaplikuj(f, [5, 10, 15]) = }")
 
+plus1 = lambda x: x + 1
+print(f"{plus1(5) = }")
+print(f"{zaaplikuj(lambda a: a ** 2, [5, 10, 15]) = }")
+print(f"{(lambda a, b: a + b)(100, 20) = }")  # funkcję anonimową moża od razu wywołać
+print(f"{zaaplikuj(lambda x: lambda y: x + y, [5, 10, 15])[1](100) = }")
+
