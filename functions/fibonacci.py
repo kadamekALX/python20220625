@@ -12,12 +12,14 @@
 #         return 1
 #     return fib(n - 1) + fib(n - 2)
 
-# iteracyjnie - czas: O(n), pamięć: O(n)
+# iteracyjnie - czas: O(n), pamięć: O(1)
 def fib(n):
-    lista = [0, 1]
-    while len(lista) < n + 1:
-        lista.append(lista[-1] + lista[-2])
-    return lista[n]
+    a, b = 0, 1
+    for i in range(n):
+        tmp = a + b
+        a = b
+        b = tmp
+    return a
 
 
 print(f"{fib(0) = }")
@@ -26,3 +28,4 @@ print(f"{fib(6) = }")
 print(f"{fib(10) = }")
 print(f"{fib(40) = }")
 print(f"{fib(100) = }")
+print(f"{fib(10000) = }")
