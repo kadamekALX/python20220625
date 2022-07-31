@@ -45,13 +45,11 @@ class Koszyk:
     def dodaj_produkt(self, prod: Produkt, ile=1):
         if not isinstance(prod, Produkt):
             return  # nie wkładamy do koszyka rzeczy typów innych niż Produkt
-        znaleziony = False
         for wk in self.zawartosc:
             if wk.produkt.id == prod.id:
                 wk.ilosc += ile
-                znaleziony = True
                 break
-        if not znaleziony:
+        else:  # `else` pod pętlą wykona się TYLKO jeśli pętla nie została przerwana instrukcją `break`
             self.zawartosc.append(WpisKoszyka(prod, ile))
 
     def laczna_cena(self):
