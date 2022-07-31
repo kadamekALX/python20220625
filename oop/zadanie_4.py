@@ -26,25 +26,36 @@ class Produkt:
         print(f"Produkt '{self.nazwa}', id: {self.id}, cena: {self.cena:.2f} PLN")
 
 
+class WpisKoszyka:
+    def __init__(self, p, ile):
+        self.produkt = p
+        self.ilosc = ile
+
+    def wartosc(self):
+        return self.produkt.cena * self.ilosc
+
+    def napis(self):
+        return f"{self.produkt.nazwa}, {self.produkt.cena} PLN x{self.ilosc}"
+
 class Koszyk:
     def __init__(self):
-        self.zawartosc = []  # lista słowników, które zawierają produkt i ilosc
+        self.zawartosc = []  # lista obiektów WpisKoszyka
 
     def dodaj_produkt(self, prod: Produkt, ile=1):
         if not isinstance(prod, Produkt):
             return  # nie wkładamy do koszyka rzeczy typów innych niż Produkt
-        self.zawartosc.append({"produkt": prod, "ilosc": ile})
+        self.zawartosc.append(WpisKoszyka(prod, ile))
 
     def laczna_cena(self):
         suma = 0
-        for d in self.zawartosc:
-            suma += d["produkt"].cena * d["ilosc"]
+        for wk in self.zawartosc:
+            suma += wk.wartosc()
         return suma
 
     def podsumowanie(self):
         print("Produkty w koszyku:")
-        for d in self.zawartosc:
-            print(f" - {d['produkt'].nazwa}, {d['produkt'].cena} PLN x{d['ilosc']}")
+        for wk in self.zawartosc:
+            print(f" - {wk.napis()}")
         print(f"Suma: {self.laczna_cena()} PLN")
 
 
