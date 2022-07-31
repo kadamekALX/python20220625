@@ -30,8 +30,11 @@ class Koszyk:
     def __init__(self):
         self.zawartosc = []
 
-    def dodaj_produkt(self, prod):
-        self.zawartosc.append(prod)
+    def dodaj_produkt(self, prod: Produkt, ile=1):
+        if not isinstance(prod, Produkt):
+            return  # nie wkładamy do koszyka rzeczy typów innych niż Produkt
+        for _ in range(ile):
+            self.zawartosc.append(prod)
 
     def laczna_cena(self):
         suma = 0
@@ -45,8 +48,16 @@ class Koszyk:
             print(f" - {p.nazwa}, {p.cena} PLN")
         print(f"Suma: {self.laczna_cena()} PLN")
 
+class Nieprodukt:
+    def __init__(self):
+        self.nazwa = "HAH"
+        self.cena = -5
+
 
 k = Koszyk()
-k.dodaj_produkt(Produkt(1, "Woda", 5.50))
+p = Produkt(1, "Woda", 5.50)
+k.dodaj_produkt(p, 4)
 k.dodaj_produkt(Produkt(2, "Banan", 2.99))
+k.dodaj_produkt(Nieprodukt())
+k.dodaj_produkt(15)
 k.podsumowanie()
