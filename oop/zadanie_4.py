@@ -72,6 +72,3 @@ k.dodaj_produkt(p, 3)
 banan = Produkt(2, "Banan", 2.99)
 k.dodaj_produkt(banan)
 k.podsumowanie()
-
-# Dodanie drugi raz tego samego produktu powinno zwiększyć ilość
-# w odpowiednim wpisie zamiast dodawać nowy wpis.
