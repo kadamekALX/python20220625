@@ -9,8 +9,9 @@ try:
     x = int(input("Podaj x:"))
     3 / x
     print(f"{niebezpieczna_operacja(x) = }")
-except ValueError:  # wewnątrz `except` obsługujemy wyjątek. Po obsłużeniu program wznawia normalne działanie
-    print("Złapałem ValueError!")
+# wewnątrz `except` obsługujemy wyjątek. Po obsłużeniu program wznawia normalne działanie
+except ValueError as e:  # zapisujemy złapany wyjątek pod zmienną `e`
+    print("Złapałem ValueError!", e)
 except ZeroDivisionError:
     print("Nie dziel przez 0!")
     raise  # przepuszcza ten wyjątek, ktory właśnie złapaliśmy
