@@ -15,6 +15,8 @@ except ValueError as e:  # zapisujemy złapany wyjątek pod zmienną `e`
 except ZeroDivisionError:
     print("Nie dziel przez 0!")
     raise  # przepuszcza ten wyjątek, ktory właśnie złapaliśmy
+finally:  # wykona się zawsze, nawet jak nie złapiemy wyjątku
+    print("To się wykona zawsze!")
 
 
 print("ciąg dalszy programu...")
