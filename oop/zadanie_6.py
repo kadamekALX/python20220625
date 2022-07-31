@@ -21,6 +21,9 @@ class Wektor:
     def __mul__(self, other):
         return Wektor(self.x * other, self.y * other)
 
+    def __rmul__(self, other):  # działanie `other * self`, gdzie other nie wspiera tego dzialania
+        return self * other  # to wywoła `self.__mul__(other)`, bo `self` jest Wektorem
+
     def __lt__(self, other):  # wywoływane jeśli zrobimy `self < other`
         return self.dlugosc() < other.dlugosc()
 
@@ -41,5 +44,6 @@ print(w)
 print(z)
 print(f"{v} + {w} = {v + w}")
 print(f"v - w = {v - w}")
-print(f"v * 5 = {v * 5}")
+print(f"v * 5 = {v * 5}")  # v.__mul__(5)
+print(f"5 * v = {5 * v}")  # 5.__mul__(v) - nie zadziała, więc próbujemy v.__rmul__(5)
 print(f"v < w: {v < w}")  # tu jest wywoływane v.__lt__(w)
