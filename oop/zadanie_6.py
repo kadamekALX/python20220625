@@ -15,6 +15,18 @@ class Wektor:
     def __add__(self, other):
         return Wektor(self.x + other.x, self.y + other.y)
 
+    def __sub__(self, other):
+        return Wektor(self.x - other.x, self.y - other.y)
+
+    def __mul__(self, other):
+        return Wektor(self.x * other, self.y * other)
+
+    def __lt__(self, other):  # wywoływane jeśli zrobimy `self < other`
+        return self.dlugosc() < other.dlugosc()
+
+    def dlugosc(self):
+        return (self.x ** 2 + self.y ** 2) ** 0.5
+
     def __str__(self):
         return f"[{self.x}, {self.y}]"
 
@@ -28,6 +40,6 @@ print(v)
 print(w)
 print(z)
 print(f"{v} + {w} = {v + w}")
-# Chcemy, żeby poniższe 2 wiersze działały
-# q = v * 5
-# if v < w:
+print(f"v - w = {v - w}")
+print(f"v * 5 = {v * 5}")
+print(f"v < w: {v < w}")  # tu jest wywoływane v.__lt__(w)
