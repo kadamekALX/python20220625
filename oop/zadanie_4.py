@@ -34,7 +34,8 @@ class WpisKoszyka:
     def wartosc(self):
         return self.produkt.cena * self.ilosc
 
-    def napis(self):
+    # metoda __str__() jest wywoływana przy konwertowaniu na napis
+    def __str__(self):
         return f"{self.produkt.nazwa}, {self.produkt.cena} PLN x{self.ilosc}"
 
 class Koszyk:
@@ -55,7 +56,7 @@ class Koszyk:
     def podsumowanie(self):
         print("Produkty w koszyku:")
         for wk in self.zawartosc:
-            print(f" - {wk.napis()}")
+            print(f" - {wk}")  # w tym miejscu jest wywoływane wk.__str__()
         print(f"Suma: {self.laczna_cena()} PLN")
 
 
