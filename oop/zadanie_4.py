@@ -45,7 +45,14 @@ class Koszyk:
     def dodaj_produkt(self, prod: Produkt, ile=1):
         if not isinstance(prod, Produkt):
             return  # nie wkładamy do koszyka rzeczy typów innych niż Produkt
-        self.zawartosc.append(WpisKoszyka(prod, ile))
+        znaleziony = False
+        for wk in self.zawartosc:
+            if wk.produkt.id == prod.id:
+                wk.ilosc += ile
+                znaleziony = True
+                break
+        if not znaleziony:
+            self.zawartosc.append(WpisKoszyka(prod, ile))
 
     def laczna_cena(self):
         suma = 0
@@ -63,5 +70,10 @@ class Koszyk:
 k = Koszyk()
 p = Produkt(1, "Woda", 5.50)
 k.dodaj_produkt(p, 4)
-k.dodaj_produkt(Produkt(2, "Banan", 2.99))
+k.dodaj_produkt(p, 3)
+banan = Produkt(2, "Banan", 2.99)
+k.dodaj_produkt(banan)
 k.podsumowanie()
+
+# Dodanie drugi raz tego samego produktu powinno zwiększyć ilość
+# w odpowiednim wpisie zamiast dodawać nowy wpis.
