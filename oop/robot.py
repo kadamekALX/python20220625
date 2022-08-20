@@ -13,6 +13,7 @@
 # - końcowe położenie robota: (1, 3), zwrot: S.
 
 kierunki = ("N", "E", "S", "W")
+ruchy = ((0, 1), (1, 0), (0, -1), (-1, 0))
 
 class Robot:
     def __init__(self):
@@ -27,26 +28,16 @@ class Robot:
         self.zwrot = (self.zwrot + 3) % 4
 
     def naprzod(self):
-        if self.zwrot == 0:
-            self.y += 1
-        elif self.zwrot == 1:
-            self.x += 1
-        elif self.zwrot == 2:
-            self.y -= 1
-        elif self.zwrot == 3:
-            self.x -= 1
+        self.x += ruchy[self.zwrot][0]
+        self.y += ruchy[self.zwrot][1]
 
     def wypisz(self):
         print(f"x={self.x}, y={self.y}, zwrot: {kierunki[self.zwrot]}")
 
     def wykonaj(self, ciag_instrukcji):
+        metody = {'N': self.naprzod, 'P': self.prawo, 'L': self.lewo}
         for litera in ciag_instrukcji:
-            if litera == 'N':
-                self.naprzod()
-            elif litera == 'P':
-                self.prawo()
-            elif litera == 'L':
-                self.lewo()
+            metody[litera]()
 
 
 r = Robot()
