@@ -25,5 +25,5 @@ with open("logs.txt") as plik:
                 suma_czasu[user] = 0
             suma_czasu[user] += dlugosc_ostatniej_sesji
 
-for user, czas in sorted(suma_czasu.items()):
+for user, czas in sorted(suma_czasu.items(), key=lambda x: x[1], reverse=True):
     print(f"{user}: {czas}s")
