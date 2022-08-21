@@ -2,21 +2,20 @@ import os
 # Napisz funkcję (rekurencyjną), która wypisze zawartość zadanego katalogu.
 # Zawartość podkatalogów powinna być wcięta o 1 tabulator więcej niż podkatalog.
 
-def wypisz_katalog(katalog, wciecie=0):
-    for x in os.scandir(katalog):
-        w = '\t' * wciecie
+def wypisz_katalog(katalog, wciecie=[]):
+    lista = list(os.scandir(katalog))
+    for x in lista:
+        w = "".join(wciecie)
+        if x is lista[-1]:
+            w += "\\---"
+        else:
+            w += "|---"
         print(f"{w}{x.name}")
         if x.is_dir():
-            wypisz_katalog(x, wciecie + 1)
-        # print(x.name, x.is_dir(), x.path)
+            if x is lista[-1]:
+                wypisz_katalog(x, wciecie + [" " * 4])
+            else:
+                wypisz_katalog(x, wciecie + ["|   "])
 
-wypisz_katalog('C:\\')
+wypisz_katalog('..')
 
-# .idea
-# basics
-#     plik1
-#     plik2
-#     plik3
-#     katalog
-#         plik4
-# collections
