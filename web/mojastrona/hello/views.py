@@ -24,6 +24,4 @@ def oblicz(request, dzialanie, a, b):
 def lista_produktow(request):
     lista = Produkt.objects.filter(dostepny=True)  # pobieramy tylko produkty, dla których dostepny=True
     # lista = Produkt.objects.all()  # pobieramy wszystkie produkty z bazy
-    return HttpResponse("<br>".join(x.nazwa for x in lista))
-
-# przerwa do 13:40
+    return render(request, "lista_produktow.html", context={"produkty": lista})
