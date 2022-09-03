@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from hello.views import hello_view, czesc, oblicz, lista_produktow, szczegoly_produktu
 
+from biblioteka.views import lista_autorow, szczegoly_autora
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_view),
@@ -24,4 +26,6 @@ urlpatterns = [
     path('dzialanie/<dzialanie>/<a>/<b>/', oblicz),
     path('produkty/', lista_produktow, name="lista_produktow"),
     path('produkt/<int:id>/', szczegoly_produktu, name="szczegoly_produktu"),
+    path('biblioteka/autorzy/', lista_autorow, name="lista_autorow"),
+    path('biblioteka/autor/<int:id>/', szczegoly_autora, name="szczegoly_autora"),
 ]
