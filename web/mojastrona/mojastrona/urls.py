@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from hello.views import hello_view, czesc, oblicz, lista_produktow
+from hello.views import hello_view, czesc, oblicz, lista_produktow, szczegoly_produktu
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/', hello_view),
     path('czesc/<imie>/', czesc),
     path('dzialanie/<dzialanie>/<a>/<b>/', oblicz),
-    path('produkty/', lista_produktow),
+    path('produkty/', lista_produktow, name="lista_produktow"),
+    path('produkt/<int:id>/', szczegoly_produktu, name="szczegoly_produktu"),
 ]
